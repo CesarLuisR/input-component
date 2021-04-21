@@ -1,0 +1,77 @@
+:root {
+  --defaultFont: #333333;
+  --defaultBorder: #828282;
+  --blue: #2962ff;
+  --red: #d32f2f;
+}
+
+.icon-start {
+  position: absolute;
+  top: 35px;
+  left: 6px;
+}
+
+.icon-end {
+  position: absolute;
+  top: 35px;
+  right: 10px;
+}
+
+/* Conteiner */
+.label {
+  display: flex;
+  flex-direction: column;
+  font-family: Noto Sans JP;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--defaultFont);
+  position: relative;
+  top: 16px;
+}
+
+/* Input */
+.input {
+  width: 200px;
+  height: 56px;
+  border: 1px solid var(--defaultBorder);
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin-top: 3px;
+  padding: 10px;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Focus */
+.input:focus {
+  border: 1px solid var(--blue);
+}
+
+.label-focus-state {
+  color: #2962ff !important;
+}
+
+/* Error */
+.input:invalid {
+  border: 1px solid var(--red);
+}
+
+.label-invalid {
+  color: var(--red) !important;
+}
+
+.helper-text {
+  font-family: Noto Sans JP;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 14px;
+  margin-top: 3px;
+  color: var(--defaultBorder);
+}
+
+.change-size {
+  height: 40px;
+}
