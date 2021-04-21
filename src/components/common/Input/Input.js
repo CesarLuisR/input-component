@@ -2,10 +2,10 @@ import React, { useRef, useEffect } from "react";
 import "./index.css";
 
 const Input = (props) => {
-  const labelRef = useRef(null);
-  const helperText = useRef(null);
-  const inputRef = useRef(null);
-  const iconRef = useRef(null);
+  const labelRef = useRef();
+  const helperText = useRef();
+  const inputRef = useRef();
+  const iconRef = useRef();
 
   const handleFocus = () => {
     labelRef.current.classList.add("label-focus-state");
@@ -28,13 +28,9 @@ const Input = (props) => {
   };
 
   useEffect(() => {
-    if (props.startIcon) {
-      inputRef.current.style.paddingLeft = "40px";
-    }
-
-    if (props.endIcon) {
-      inputRef.current.style.paddingRight = "40px";
-    }
+    if (props.startIcon) inputRef.current.style.paddingLeft = "40px";
+    if (props.endIcon) inputRef.current.style.paddingRight = "40px";
+    if (props.fullWidth) inputRef.current.style.width = "550%";
 
     if (props.size) {
       if (props.size === "sm") {
@@ -43,11 +39,7 @@ const Input = (props) => {
           iconRef.current.style.top = "28px";
       }
     }
-
-    if (props.fullWidth) {
-      inputRef.current.style.width = "550%";
-    }
-  }, []);
+  });
 
   return (
     <label className="label">
@@ -71,8 +63,18 @@ const Input = (props) => {
           onFocus={handleFocus}
           onBlur={handleRemoveFocus}
           onChange={handleChange}
-          placeholder="Placeholder"
-          {...props}
+          placeholder={props.placeholder || "Placeholder"}
+          defaultValue={props.defaultValue || null}
+          readOnly={props.readonly || null}
+          disabled={props.disabled || null}
+          maxLength={props.maxlength || null}
+          min={props.min || null}
+          max={props.max || null}
+          multiple={props.multiple || null}
+          pattern={props.pattern || null}
+          required={props.required || null}
+          step={props.step || null}
+          autoFocus={props.autofocus || null}
         />
       ) : (
         <input
@@ -81,8 +83,21 @@ const Input = (props) => {
           onFocus={handleFocus}
           onBlur={handleRemoveFocus}
           onChange={handleChange}
-          placeholder="Placeholder"
-          {...props}
+          placeholder={props.placeholder || "Placeholder"}
+          defaultValue={props.defaultValue || null}
+          type={props.type}
+          readOnly={props.readonly || null}
+          disabled={props.disabled || null}
+          maxLength={props.maxlength || null}
+          min={props.min || null}
+          max={props.max || null}
+          multiple={props.multiple || null}
+          pattern={props.pattern || null}
+          required={props.required || null}
+          step={props.step || null}
+          autoFocus={props.autofocus || null}
+          list={props.list || null}
+          autoComplete={props.autocomplete || null}
         />
       )}
       {props.helperText && (
