@@ -54,6 +54,11 @@
   color: #2962ff !important;
 }
 
+/* Disabled */
+.input:disabled {
+  cursor: no-drop;
+}
+
 /* Error */
 .input:invalid {
   border: 1px solid var(--red);
