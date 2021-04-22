@@ -30,7 +30,7 @@ const Input = (props) => {
   useEffect(() => {
     if (props.startIcon) inputRef.current.style.paddingLeft = "40px";
     if (props.endIcon) inputRef.current.style.paddingRight = "40px";
-    if (props.fullWidth) inputRef.current.style.width = "550%";
+    if (props.fullWidth) inputRef.current.style.width = "65vw";
 
     if (props.size) {
       if (props.size === "sm") {
